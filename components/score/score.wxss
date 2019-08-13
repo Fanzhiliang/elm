@@ -1,0 +1,30 @@
+/* components/score/score.wxss */
+.full{
+  width: 116rpx;
+  height: 20rpx;
+}
+
+.absolute{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.score-components{
+  line-height: 20rpx;
+  display: inline-block;
+  position: relative;
+}
+
+.score-bg{
+  z-index: 2;
+}
+
+.score-active{
+  z-index: 9;
+}
+
+.mask{
+  overflow-x: hidden;
+  width: 0;
+}

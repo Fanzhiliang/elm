@@ -1,0 +1,7 @@
+<!--components/score/score.wxml-->
+<view class="score-components full">
+  <image class="score-bg full absolute" src="/static/img/score-bg.png"></image>
+  <view class="mask full absolute" style="width:{{(score/max)*100}}%">
+    <image class="score-active full absolute" src="/static/img/score.png"></image>
+  </view>
+</view>

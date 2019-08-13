@@ -1,0 +1,42 @@
+<!--pages/address/form/form.wxml-->
+
+<view class="form">
+  <view class="form-row">
+    <view class="label">联系人</view>
+    <view class="left-row">
+      <input value="{{name}}" data-item="name" bindinput="inputedit"></input>
+      <view class="tag-row">
+        <view wx:for="{{genderList}}" wx:key="{{index}}" class="tag {{gender==index?'active':''}}" data-index="{{index}}" bindtap="selectGender">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-row">
+    <view class="label">电话</view>
+    <view class="left-row">
+      <input value="{{mobile}}" data-item="mobile" bindinput="inputedit"></input>
+    </view>
+  </view>
+
+  <view class="form-row">
+    <view class="label">地址</view>
+    <navigator hover-class="none" url="/pages/address/select/select?isHideReceive=true" class="left-row ellipsis">
+      <view class="value ellipsis">{{address}}<text class="arrow iconfont icon-right"></text></view>
+    </navigator>
+  </view>
+
+  <view class="form-row">
+    <view class="label">补充说明</view>
+    <view class="left-row">
+      <textarea value="{{remark}}" data-item="remark" bindinput="inputedit"></textarea>
+      <view class="tag-row">
+        <view wx:for="{{placeList}}" wx:key="{{index}}" class="tag {{place==index?'active':''}}" data-index="{{index}}" bindtap="selectPlace">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="but-row">
+  <view class="button delete" wx:if="{{isEdit}}" bindtap="deleteHandler">删除</view>
+  <view class="button sure" bindtap="sure">确定</view>
+</view>

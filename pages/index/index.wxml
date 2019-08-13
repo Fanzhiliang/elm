@@ -1,0 +1,125 @@
+<!--index.wxml-->
+
+<!-- 地位、搜索 -->
+<view class="top">
+  <view class="row">
+    <text class="icon iconfont icon-location"></text>
+    <navigator class="name ellipsis" hover-class="none" url="/pages/address/select/select">{{currentAddress}}</navigator>
+    <text class="arrow"></text>
+  </view>
+  <navigator class="row" url="/pages/search/search" hover-class="none">
+    <view class="search">
+      <text class="icon iconfont icon-search1"></text>
+      <text>搜索商家、商品名称</text>
+    </view>
+  </navigator>
+</view>
+
+<!-- 轮播图 -->
+<swiper class="index-swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}"
+  autoplay="{{true}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 选项 -->
+<swiper class="tab-swiper"indicator-dots="{{indicatorDots}}" circular="{{false}}"
+  autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+  <block wx:for="{{tabList}}" wx:key="{{index}}">
+    <swiper-item>
+      <view class="tab-row">
+        <navigator url="../classify/classify?text={{it.text}}" class="tab" wx:for="{{item}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}">
+          <image src="{{it.src}}"></image>
+          <view>{{it.text}}</view>
+        </navigator>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 店铺列表 -->
+<view class="shop-list">
+  <sort-dialog id="sort-dialog" bind:selectedEvent="selected"></sort-dialog>
+  <view class="list">
+    <navigator url="/pages/shop/shop" hover-class="none" class="shop" wx:for="{{goodsList}}" wx:key="{{index}}">
+      <image src="/static/img/new-shop.png" class="new-shop"></image>
+
+      <view class="info clearfix">
+        <image class="logo" src="{{item.logo}}"></image>
+        <view class="name">
+          <image class="prefix-tag" src="/static/img/pinpai.png"></image>
+          <view class="val ellipsis">{{item.name}}</view>
+          <image class="suffix-tag" src="/static/img/screen-14.png"></image>
+        </view>
+
+        <view class="sorce-row">
+          <score score="{{4.4}}"></score>
+          <text class="sorce-val">4.4</text>
+          <text class="sale-val">月销547单</text>
+        </view>
+
+        <view class="price-row clearfix">
+          <text class="price-val">￥50起送</text>
+          <text class="separate">|</text>
+          <text class="price-val">配送费￥2.5</text>
+
+          <text class="dist">
+            <text>2.1km</text><text class="separate">|</text><text class="time">50分钟</text>
+          </text>
+        </view>
+
+        <view class="tags">
+          <view class="tag-item">美食节</view>
+        </view>
+      </view>
+
+      <view class="activity {{item.showActivity?'showMore':''}}">
+        <view class="activity-row ellipsis" wx:for="{{item.activityList}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}">
+          <image class="activity-icon" src="{{it.icon}}"></image>{{it.title}}
+        </view>
+        <view class="more" data-index="{{index}}" catchtap="toggleShowActivity" wx:if="{{item.activityList.length>2}}">3个活动<text class="arrow"></text></view>
+      </view>
+
+      <view class="goods">
+        <view class="goods-item">
+          <image class="goods-cover" src="/static/img/goods-1.jpg"></image>
+          <view class="name ellipsis">黑椒鸡块</view>
+          <view class="price">
+            <text class="real-price"><text>￥</text>1.99</text>
+            <text class="old-price">6.5</text>
+          </view>
+        </view>
+
+        <view class="goods-item">
+          <image class="goods-cover" src="/static/img/goods-2.jpg"></image>
+          <view class="name ellipsis">香辣孜然鸡柳+中型可乐</view>
+          <view class="price">
+            <text class="real-price"><text>￥</text>9</text>
+            <text class="old-price">18</text>
+          </view>
+        </view>
+
+        <view class="goods-item">
+          <image class="goods-cover" src="/static/img/goods-3.jpg"></image>
+          <view class="name ellipsis">香辣鸡堡+中型可乐</view>
+          <view class="price">
+            <text class="real-price"><text>￥</text>11.99</text>
+            <text class="old-price">22</text>
+          </view>
+        </view>
+      </view>
+
+    </navigator>
+  </view>
+</view>
+
+<bottom-loading hasMore="{{hasMore}}"></bottom-loading>
+
+
+
+
+
+

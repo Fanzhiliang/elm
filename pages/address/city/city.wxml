@@ -1,0 +1,34 @@
+<!--pages/address/city/city.wxml-->
+<view class="search--wrap">
+  <view class="search-row" url="/pages/search/search" hover-class="none">
+    <view class="search">
+      <text class="icon iconfont icon-search1"></text>
+      <input placeholder="输入城市名进行搜索" bindinput="inputHandler" value="{{keyword}}"></input>
+    </view>
+  </view>
+</view>
+
+<view id="current-city">
+  <view class="title">当前定位地址</view>
+  <view class="row no-border" data-city="{{city}}" bindtap="selectCity">{{city}}</view>
+</view>
+
+<block wx:for="{{cityList}}" wx:if="{{item.list.length>0}}" wx:key="{{index}}">
+
+  <view class="title" id="{{item.key}}">{{item.key}}</view>
+
+  <view class="row" wx:for="{{item.list}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}" data-city="{{it.name}}" bindtap="selectCity">{{it.name}}</view>
+
+</block>
+
+
+<view class="pinyin-side">
+  <view class="item" wx:for="{{cityList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectPinyin">{{item.key}}</view>
+</view>
+
+
+<view class="search-list" wx:if="{{searchList.length>0}}">
+  <view class="row" wx:for="{{searchList}}" wx:key="{{index}}" data-city="{{item.name}}" bindtap="selectCity">{{item.name}}</view>
+</view>
+
+

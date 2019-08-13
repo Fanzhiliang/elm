@@ -1,0 +1,255 @@
+
+/* 店铺列表 */
+.shop-list{
+  background-color: #fff;
+  /* margin-bottom: 20rpx; */
+}
+
+.shop-list .list{
+
+}
+
+.shop-list .shop{
+  padding: 30rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  position: relative;
+}
+
+.shop-list .shop .new-shop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.shop-list .shop .info{
+  min-height: 125rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  padding-bottom: 5rpx;
+}
+
+.shop-list .shop .info .logo{
+  width: 125rpx;
+  height: 125rpx;
+  float: left;
+  margin-right: 25rpx;
+}
+
+.shop-list .shop .info .name{
+  height: 40rpx;
+  line-height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop-list .shop .info .prefix-tag{
+  width: 60rpx;
+  height: 35rpx;
+  align-self: flex-end;
+}
+
+.shop-list .shop .info .val{
+  font-size: 34rpx;
+  width: 450rpx;
+  margin: 0 10rpx;
+}
+
+.shop-list .shop .info .suffix-tag{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.shop-list .shop .info .sorce-row{
+  height: 20rpx;
+  line-height: 20rpx;
+  padding: 15rpx 0;
+}
+
+.shop-list .shop .info .sorce-val{
+  color: #FFA80A;
+  margin-left: 10rpx;
+  margin-right: 15rpx;
+  font-size: 24rpx;
+}
+
+.shop-list .shop .info .sale-val{
+  color: #666666;
+  font-size: 24rpx;
+}
+
+.shop-list .shop .info .price-row{
+  line-height: 30rpx;
+}
+
+.shop-list .shop .info .price-row text{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24rpx;
+}
+
+.shop-list .shop .info .price-row .price-val{
+  
+}
+
+.shop-list .shop .info .price-row .separate{
+  color: #A6A6A6;
+  font-size: 20rpx;
+  margin: 0 5rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.shop-list .shop .info .price-row .dist{
+  float: right;
+  color: #A6A6A6;
+}
+
+.shop-list .shop .info .price-row .time{
+  color: #0096FA;
+}
+
+.shop-list .shop .info .tags{
+  padding-top: 5rpx;
+  height: 35rpx;
+  padding-left: 150rpx;
+}
+
+.shop-list .shop .info .tags .tag-item{
+  height: 35rpx;
+  line-height: 35rpx;
+  text-align: center;
+  padding: 0 15rpx;
+  border-radius: 5rpx;
+  background-color: #fa1e1e;
+  color: #fff;
+  float: left;
+  font-size: 24rpx;
+}
+
+.shop-list .shop .activity{
+  position: relative;
+  padding: 5rpx 0;
+  height: 85rpx;
+  overflow: hidden;
+}
+
+.shop-list .shop .activity.showMore{
+  height: initial;
+  overflow: auto;
+}
+
+.shop-list .shop .activity .activity-row{
+  height: 35rpx;
+  line-height: 35rpx;
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  padding: 5rpx 120rpx 5rpx 0;
+}
+
+.shop-list .shop .activity .activity-icon{
+  width: 38rpx;
+  height: 35rpx;
+  margin-left: -2rpx;
+}
+
+.shop-list .shop .activity .more{
+  position: absolute;
+  top: 5rpx;
+  right: 0;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop-list .shop .activity .more .arrow{
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top-color: #000;
+  margin-top: 10rpx;
+  margin-left: 5rpx;
+}
+
+.shop-list .shop .activity.showMore .more .arrow{
+  transform: rotateZ(180deg);
+  margin-top: 0;
+}
+
+.shop-list .shop .goods{
+  display: flex;
+  justify-content: space-between;
+}
+
+.shop-list .shop .goods .goods-item{
+  width: 220rpx;
+  height: 330rpx;
+  border: 1rpx solid #EEEEEE;
+}
+
+.shop-list .shop .goods .goods-cover{
+  width: 218rpx;
+  height: 218rpx;
+}
+
+.shop-list .shop .goods .name{
+  height: 25rpx;
+  line-height: 25rpx;
+  padding: 15rpx 15rpx;
+  font-size: 30rpx;
+
+}
+
+.shop-list .shop .goods .price{
+  padding: 0 15rpx;
+}
+
+.shop-list .shop .goods .real-price{
+  color: #fa1e20;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+
+.shop-list .shop .goods .real-price text{
+  font-size: 24rpx;
+}
+
+.shop-list .shop .goods .old-price{
+  color: #666666;
+  font-size: 24rpx;
+  position: relative;
+  text-decoration:line-through;
+}
+
+
+
+
+.shop-list .shop.search .goods{
+  padding-left: 150rpx;
+  width: 535rpx;
+}
+
+
+.shop-list .shop.search .goods .goods-item{
+  width: 175rpx;
+  height: 270rpx;
+  border: 0;
+}
+
+.shop-list .shop.search .goods .goods-cover{
+  width: 175rpx;
+  height: 175rpx;
+}
+
+.shop-list .shop.search .goods .name{
+  color: #c8c6c7;
+}
+
+.shop-list .shop.search .goods .real-price{
+  font-size: 30rpx;
+}
+
+.shop-list .shop.search .activity{
+  padding-left: 150rpx;
+}

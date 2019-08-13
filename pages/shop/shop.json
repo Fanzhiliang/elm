@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "饿了么",
+  "usingComponents": {
+    "bg": "./components/bg/bg",
+    "header": "./components/header/header"
+  }
+}

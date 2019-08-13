@@ -1,0 +1,160 @@
+/* pages/user/user.wxss */
+page{
+  background-color: #EEEEEE;
+}
+
+/* 用户信息 */
+.user-row-wrap{
+  height: 200rpx;
+  border: 0;
+  display: block;
+  border-radius: 0;
+  box-sizing: content-box;
+  text-align: left;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.user-row-wrap::before,
+.user-row-wrap::after{
+  display: none;
+}
+
+.user-row{
+  background-color: #0395FF;
+  height: 120rpx;
+  padding: 40rpx;
+  color: #fff;
+  overflow: hidden;
+}
+
+.user-row .user-head{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 40rpx;
+  float: left;
+  border-radius: 50%;
+}
+
+.user-row .username{
+  font-size: 36rpx;
+  padding-top: 10rpx;
+}
+
+.user-row .phone{
+  line-height: 40rpx;
+  font-size: 26rpx;
+}
+
+.user-row .phone text{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 26rpx;
+}
+
+/* 余额、红包、金币 */
+.three-row{
+  display: flex;
+  height: 160rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.three-row .item{
+  flex-basis: 33.33%;
+  border-right: 1rpx solid #F0F0F0;
+  border-bottom: 1rpx solid #F0F0F0;
+  padding: 20rpx 0;
+}
+
+.three-row .item:last-of-type{
+  border-right: 0;
+}
+
+.three-row .item .top{
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+
+.three-row .item .top.yue{
+  color: #F99F0B;
+}
+
+.three-row .item .top.hongbao{
+  color: #FD674B;
+}
+
+.three-row .item .top.jinbi{
+  color: #6BC346;
+}
+
+.three-row .item .top text{
+  font-size: 40rpx;
+  margin-right: 3rpx;
+}
+
+.three-row .item .bottom{
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+
+/* 收货地址、推荐有奖... */
+.group{
+  background-color: #fff;
+  margin: 30rpx 0;
+  border-top: 1rpx solid #F0F0F0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.group .cell{
+  height: 90rpx;
+}
+
+.group .left-image{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx 20rpx 20rpx 30rpx;
+}
+
+.group .right-row{
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20rpx;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.group .cell:last-of-type .right-row{
+  border-bottom: 0;
+}
+
+.group .title{
+
+}
+
+.group .icon{
+  color: #D3D3D3;
+}
+
+.exit-row{
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #F1352D;
+  background-color: #fff;
+  border-top: 1rpx solid #F0F0F0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.privacy-row{
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #0395FF;
+  margin: 30rpx 0;
+}
+
+

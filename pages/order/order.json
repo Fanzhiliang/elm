@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单",
+  "usingComponents": {
+    "bottom-loading": "../../components/bottom-loading/bottom-loading"
+  }
+}

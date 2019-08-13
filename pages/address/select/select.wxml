@@ -1,0 +1,65 @@
+<!--pages/address/select/select.wxml-->
+<view class="top">
+  <navigator url="/pages/address/city/city?city={{city}}" class="city ellipsis" hover-class="none">{{city}}</navigator>
+  <text class="arrow"></text>
+  <input placeholder="小区/写字楼/学校等" value="{{keyword}}" bindinput="inputHandler"></input>
+</view>
+
+<view class="title">当前地址</view>
+
+<view class="current-address clearfix">
+  <view class="name">{{currAddress}}</view>
+  <view class="resest-select" bindtap="resetAddress"><text class="icon iconfont icon-location"></text>重新定位</view>
+</view>
+
+<!-- 搜索地址 -->
+<block wx:if="{{searchList.length>0}}">
+  <view class="title">搜索地址</view>
+
+  <view class="address-row" wx:for="{{searchList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectSearchAddress">
+    <view class="top-row">
+      <view class="name">{{item.title}}</view>
+    </view>
+    <view class="bottom-row">
+      {{item.address}}
+    </view>
+  </view>
+
+</block>
+
+<!-- 收货地址 -->
+<block wx:if="{{!isHideReceive && receiveList.length>0}}">
+  <view class="title">收货地址</view>
+
+  <view class="address-row" wx:for="{{receiveList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectReceiveAddress">
+    <view class="top-row">
+      <view class="tag" wx:if="{{item.place!==null}}">{{item.placeList[item.place]}}</view>
+      <view class="name ellipsis">{{item.address}}</view>
+    </view>
+    <view class="bottom-row">
+      <text>{{item.name}}{{item.gender!==null ? '('+item.genderList[item.gender]+')' : ''}}</text> {{item.mobile}}
+    </view>
+  </view>
+</block>
+  
+<!-- 附近地址 -->
+<block wx:if="{{nearby.length>0}}">
+  <view class="title">附近地址</view>
+    <view class="nearby-row" wx:for="{{nearby}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectNearbyAddress">{{item.title}}  </view>
+</block>
+
+<!-- 底部 -->
+<view  class="address-footer-wrap" wx:if="{{isShowFooter}}">
+  <navigator class="address-footer" url="/pages/address/form/form?isAdd=true" hover-class="none">
+    <text class="icon iconfont icon-add2"></text>新增地址
+  </navigator>
+</view>
+
+
+
+
+
+
+
+
+

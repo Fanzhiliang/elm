@@ -1,0 +1,24 @@
+<!--pages/order/order.wxml-->
+<view class="order-list">
+  <view class="order" wx:for="{{10}}">
+    <view class="shop-info clearfix">
+      <image src="/static/img/shop-logo-1.jpg" class="logo"></image>
+      <view class="name clearfix">
+        <view class="val ellipsis">华莱士炸鸡汉堡(天河客运站)</view>
+        <text class="icon iconfont icon-right"></text>
+        <view class="status">订单已送达</view>
+      </view>
+      <view class="time">20小时35分钟前</view>
+    </view>
+    <view class="order-info">
+      <view class="val">暑假单人特惠套餐-暑假单人特惠套餐</view>
+      <view class="price">￥19.59</view>
+    </view>
+    <view class="button-row">
+      <view class="but">再来一单</view>
+      <view class="but">评论得12金币</view>
+    </view>
+  </view>
+</view>
+
+<bottom-loading hasMore="{{hasMore}}"></bottom-loading>

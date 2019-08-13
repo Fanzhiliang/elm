@@ -1,0 +1,48 @@
+<!--pages/shop/components/bg/bg.wxml-->
+<view class="temp-page">
+  <view class="top gray-b">
+    <view class="logo gray-w"></view>
+  </view>
+
+  <view class="info">
+    <view class="row-1 gray-b"></view>
+    <view class="row-2 gray-b"></view>
+    <view class="row-3 gray-w"></view>
+    <view class="row-4">
+      <view class="inner gray-b"></view>
+    </view>
+    <view class="row-5">
+      <view class="item gray-b"></view><view class="item gray-b"></view><view class="item gray-b"></view>
+    </view>
+  </view>
+
+
+  <view class="list">
+    <view class="left-list">
+      <view class="item gray-w" wx:for="{{10}}" wx:key="{{index}}">
+        <view class="inner gray-b"></view>
+      </view>
+    </view>
+    <view class="right-list">
+      <view class="tab">
+        <view class="item gray-b"></view>
+      </view>
+      <view class="row" wx:for="{{5}}" wx:key="{{index}}">
+        <view class="pic gray-w"></view>
+        <view class="text-1 gray-b"></view>
+        <view class="text-2 gray-b"></view>
+        <view class="text-3">
+          <view class="l gray-b"></view>
+          <view class="r gray-b"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="footer gray-w"></view>
+</view>
+
+  
+
+

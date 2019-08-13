@@ -1,0 +1,26 @@
+<!--pages/address/list/list.wxml-->
+<view class="receiveList" >
+  <view class="row" wx:for="{{receiveList}}" wx:key="{{index}}">
+    <view class="user-info">
+      <text class="name">{{item.name}}</text>
+      <text class="honorific" wx:if="{{item.gender!==null}}">{{item.genderList[item.gender]}}</text>
+      <text class="mobile">{{item.mobile}}</text>
+    </view>
+    <view class="address-info">
+      <text class="tag" wx:if="{{item.place!==null}}">{{item.placeList[item.place]}}</text>
+      <view class="address">{{item.address}}</view>
+    </view>
+    <text class="edit iconfont icon-edit" data-index="{{index}}" bindtap="goEdit"></text>
+  </view>
+</view>
+
+
+
+
+
+<!-- 底部 -->
+<view class="address-footer-wrap">
+  <navigator class="address-footer"  url="/pages/address/form/form?isAdd=true" hover-class="none">
+    <text class="icon iconfont icon-add2"></text>新增地址
+  </navigator>
+</view>

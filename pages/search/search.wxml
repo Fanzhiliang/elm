@@ -1,0 +1,126 @@
+<!--pages/search/search.wxml-->
+<view class="search--wrap">
+  <view class="search-row" url="/pages/search/search" hover-class="none">
+    <view class="search">
+      <text class="icon iconfont icon-search1"></text>
+      <input placeholder="搜索商家、商品名称" focus="{{true}}" bindinput="inputHandler" bindconfirm="confirmHandler" value="{{keyword}}"></input>
+    </view>
+  </view>
+</view>
+
+
+<!-- 搜索前 -->
+<block wx:if="{{status=='beforeSearch'}}">
+  <view class="row-title clearfix" wx:if="{{historyList.length>0}}">
+    历史搜索<text class="icon iconfont icon-delete" bindtap="clearHistory"></text>
+  </view>
+
+  <view class="search-items" wx:if="{{historyList.length>0}}">
+    <view class="search-item" wx:for="{{historyList}}" wx:key="{{index}}" data-keyword="{{item}}" bindtap="selectKeyword">{{item}}</view>
+  </view>
+
+  <view class="row-title clearfix">热门搜索</view>
+
+  <view class="search-items hot">
+    <view class="search-item" wx:for="{{hotList}}" wx:key="{{index}}" data-keyword="{{item}}" bindtap="selectKeyword">{{item}}</view>
+  </view>
+</block>
+
+<!-- 搜索中 -->
+<block wx:if="{{status=='searching'}}">
+  <view class="keyword-row" bindtap="confirmHandler">
+    <text class="icon iconfont icon-search1"></text>
+    <view class="keyword">查找"{{keyword}}"</view>
+  </view>
+</block>
+
+<!-- 完成搜索 -->
+<block wx:if="{{status=='serached'}}">
+  <view class="sort-dialog-wrap">
+    <sort-dialog id="sort-dialog" top="95rpx" bind:selectedEvent="selected"></sort-dialog>
+  </view>
+
+  <view class="tags-wrap">
+    <view class="tags-scroll">
+      <view class="tags-scroll-inner">
+        <view class="tag-item" wx:for="{{tagList}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class="shop-scroll" bindscrolltolower="scrolltolower">
+    <view class="shop-list">
+      <view class="shop search" wx:for="{{goodsList}}" wx:key="{{index}}">
+        <image wx:if="{{item.isNew}}" src="/static/img/new-shop.png" class="new-shop"></image>
+
+        <view class="info clearfix">
+          <image class="logo" src="{{item.logo}}"></image>
+          <view class="name">
+            <image class="prefix-tag" src="/static/img/pinpai.png"></image>
+            <view class="val ellipsis">{{item.name}}</view>
+            <image class="suffix-tag" src="/static/img/screen-14.png"></image>
+          </view>
+
+          <view class="sorce-row">
+            <score score="{{4.4}}"></score>
+            <text class="sorce-val">4.4</text>
+            <text class="sale-val">月销547单</text>
+          </view>
+
+          <view class="price-row clearfix">
+            <text class="price-val">￥50起送</text>
+            <text class="separate">|</text>
+            <text class="price-val">配送费￥2.5</text>
+
+            <text class="dist">
+              <text>2.1km</text><text class="separate">|</text><text class="time">50分钟</text>
+            </text>
+          </view>
+
+          <!-- <view class="tags">
+            <view class="tag-item">美食节</view>
+          </view> -->
+        </view>
+
+        <view class="activity {{item.showActivity?'showMore':''}}">
+          <view class="activity-row ellipsis" wx:for="{{item.activityList}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}">
+            <image class="activity-icon" src="{{it.icon}}"></image>{{it.title}}
+          </view>
+          <view class="more" data-index="{{index}}" catchtap="toggleShowActivity" wx:if="{{item.activityList.length>2}}">3个活动<text class="arrow"></text></view>
+        </view>
+
+        <view class="goods">
+          <view class="goods-item">
+            <image class="goods-cover" src="/static/img/goods-1.jpg"></image>
+            <view class="name ellipsis">黑椒鸡块</view>
+            <view class="price">
+              <text class="real-price"><text>￥</text>1.99</text>
+            </view>
+          </view>
+
+          <view class="goods-item">
+            <image class="goods-cover" src="/static/img/goods-2.jpg"></image>
+            <view class="name ellipsis">香辣孜然鸡柳+中型可乐</view>
+            <view class="price">
+              <text class="real-price"><text>￥</text>9</text>
+            </view>
+          </view>
+
+          <view class="goods-item">
+            <image class="goods-cover" src="/static/img/goods-3.jpg"></image>
+            <view class="name ellipsis">香辣鸡堡+中型可乐</view>
+            <view class="price">
+              <text class="real-price"><text>￥</text>11.99</text>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <bottom-loading hasMore="{{hasMore}}"></bottom-loading>
+
+  </scroll-view>
+</block>
+
+  

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "sort-dialog": "../../components/sort-dialog/sort-dialog",
+    "score": "../../components/score/score",
+    "bottom-loading": "../../components/bottom-loading/bottom-loading"
+  }
+}

@@ -1,0 +1,141 @@
+<!--pages/shop/shop.wxml-->
+<!-- 初始背景 -->
+<bg wx:if="{{!isFinal}}"></bg>
+
+
+<view hidden="{{!isFinal}}">
+  <!-- 顶部 -->
+  <header></header>
+
+  <!-- 导航 -->
+  <view class="tab" id="tab">
+    <view class="tab-inner {{tabFixed?'fixed':''}}">
+      <view class="tab-item {{tabIndex==index?'active':''}}" wx:for="{{tabList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectTab">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 推荐 -->
+  <view class="recommend">
+    <image class="recommend-image" src="/static/img/recommend.jpg"></image>
+    <view class="title">商家推荐</view>
+    <!-- 商品滚动 -->
+    <view class="goods-scroll">
+      <view class="scroll-wrap">
+        <view class="scroll-inner">
+          <view class="goods-item" wx:for="{{scrollList}}" wx:key="{{index}}">
+            <image src="{{item.image}}"></image>
+            <view class="title ellipsis">{{item.title}}</view>
+            <view class="info ellipsis">月售{{item.sale}} 好评率{{item.like}}</view>
+            <view class="bottom clearfix">
+              <view class="price"><text>￥</text>{{item.price}}</view>
+              <view class="selectNum">
+                <view wx:if="{{item.selectNum>0}}" class="reduce" data-index="{{index}}" bindtap="reduceGoods"></view>
+                <view wx:if="{{item.selectNum>0}}" class="num">{{item.selectNum}}</view>
+                <view class="add" data-index="{{index}}" bindtap="addGoods"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="goods-list" id="goods-list">
+    <view class="list-left">
+      <view class="inner">
+        <view class="type-item {{typeIndex==index?'active':''}}" wx:for="{{goodsList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectType">
+          {{item.type}}
+          <view class="selectNum" wx:if="{{item.selectNum>0}}">{{item.selectNum}}</view>
+        </view>
+      </view>
+    </view>
+    <scroll-view class="list-right" scroll-y bindscroll="listRightScroll" scroll-top="{{rightScrollTop}}">
+      <view class="group" wx:for="{{goodsList}}" wx:key="{{index}}">
+        <view class="group-title" id="type-{{index}}">{{item.type}}<text wx:if="{{item.desc}}">{{item.desc}}</text></view>
+        <view class="group-goods clearfix" wx:for="{{item.list}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}">
+          <image class="pic" src="{{it.image}}"></image>
+          <view class="p title ellipsis">{{it.title}}</view>
+          <view class="p info">
+            <text>{{it.info}}</text><text>主要原料：{{it.material}}</text>
+          </view>
+          <view class="p info">
+            <text>月售{{it.sale}}</text><text>好评率{{it.like}}</text>
+          </view>
+          <view class="p red">
+            <text>{{it.sale}}折</text><text>每单限{{it.share}}份优惠</text>
+          </view>
+          <view class="p bottom clearfix">
+            <view class="price">￥{{it.price}}</view>
+            <view class="oldPrice">￥{{it.oldPrice}}</view>
+            <view class="selectNum">
+              <view wx:if="{{it.selectNum>0}}" class="reduce" data-index="{{index}}" data-i="{{i}}" bindtap="reduceGoods"></view>
+              <view wx:if="{{it.selectNum>0}}" class="num">{{it.selectNum}}</view>
+              <view class="add" data-index="{{index}}" data-i="{{i}}" bindtap="addGoods"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer-mask" hidden="{{!showSelectList}}" bindtap="hideSelectList"></view>
+  <view class="footer" hidden="{{!isShowFooter}}">
+    <view class="footer-inner toggle {{showSelectList?'show':''}}">
+
+      <view class="middle">
+        <view class="top">满26减5，满50减3，满100减28</view>
+        <view class="middle-top">
+          <view class="label">已选商品</view>
+          <view class="clearAll" bindtap="clearAllSelect"><text class="delete iconfont icon-delete"></text>清空</view>
+        </view>
+
+        <view class="middle-rows">
+
+          <view class="row" wx:for="{{selectList}}" wx:key="{{index}}">
+            <view class="title ellipsis">{{item.title}}</view>
+            <view class="price">
+              <text class="s oldPrice">￥{{item.oldPrice}}</text>
+              <view>
+                <text class="s">￥</text>{{item.price}}
+              </view>
+            </view>
+            <view class="selectNum">
+              <view class="reduce" data-id="{{item.id}}" bindtap="reduceSelectList"></view>
+              <view class="num">{{item.selectNum}}</view>
+              <view class="add" data-id="{{item.id}}" bindtap="addSelectList"></view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class="footer-inner">
+      <view class="bottom">
+        <view class="price" wx:if="{{selectList.length==0}}">未选购商品{{oldPriceTotal}}</view>
+        <view class="price" wx:else bindtap="showSelectList">
+          <text class="white">{{'￥'+priceTotal}}</text>
+          <text class="delete">{{'￥'+oldPriceTotal}}</text>
+        </view>
+        <view class="fee">另需配送费1元</view>
+        <view class="total" wx:if="{{selectList.length==0}}">￥0起送</view>
+        <view class="total sure" wx:else>去结账</view>
+      </view>
+
+      <view bindtap="showSelectList" class="icon {{iconScale?'icon-scale':''}} {{selectList.length>0?'selected':''}}">
+        <view class="icon-inner">
+          <text class="iconfont icon-cart"></text>
+        </view>
+        <view class="selectNum" wx:if="{{selectList.length>0}}">{{selectList.length}}</view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+  

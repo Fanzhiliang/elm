@@ -1,0 +1,32 @@
+/* components/bottom-loading/bottom-loading.wxss */
+@import '/static/icon/iconfont.wxss';
+
+.loading{
+  background-color: #FAFAFA;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  overflow: hidden;
+}
+
+@keyframes rotate-icon{
+  from{
+    transform: rotateZ(0);
+  }
+  to{
+    transform: rotateZ(360deg);
+  }
+}
+
+.loading-wrap{
+  
+}
+
+.no-more{
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.rotate{
+  animation: rotate-icon 0.8s linear infinite;
+}

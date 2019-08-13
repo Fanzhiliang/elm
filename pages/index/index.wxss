@@ -1,0 +1,96 @@
+/**index.wxss**/
+page{
+  background-color: #EEEEEE;
+}
+
+
+/* 地位、搜索 */
+.top{
+  background-color: #0395FF;
+  padding: 20rpx 30rpx;
+  height: 160rpx;
+}
+
+.top .row{
+  height: 70rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.top .row:first-of-type{
+  padding-bottom: 10rpx;
+}
+
+.top .row:last-of-type{
+  padding-top: 10rpx;
+}
+
+.top .row .icon{
+  font-size: 32rpx;
+  margin-right: 5rpx;
+}
+
+.top .row .name{
+  font-size: 36rpx;
+  margin-right: 8rpx;
+}
+
+.top .row .arrow{
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  margin-top: 4px;
+}
+
+.top .row .search{
+  width: 690rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 70rpx;
+  text-align: center;
+  background-color: #fff;
+  color: #666666;
+}
+
+/* 轮播图 */
+.index-swiper,
+.index-swiper image{
+  width: 100%;
+  height: 210rpx;
+}
+
+/* 选项 */
+.tab-swiper{
+  height: 370rpx;
+  background-color: #fff;
+  margin: 20rpx 0;
+}
+
+.tab-row{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx 0;
+}
+
+.tab{
+  width: 25%;
+  height: 130rpx;
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.tab image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.tab view{
+  font-size: 24rpx;
+  color: #666666;
+}
+
+@import '/static/styles/shop-list.wxss';
+
+

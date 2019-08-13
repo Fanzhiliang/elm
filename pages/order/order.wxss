@@ -1,0 +1,115 @@
+/* pages/order/order.wxss */
+page{
+  min-height: 100%;
+  background-color: #f4f4f4;
+}
+
+.order-list{
+  
+}
+
+.order{
+  padding: 30rpx;
+  padding-bottom: 0;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.shop-info{
+  height: 65rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+}
+
+.shop-info::before{
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 615rpx;
+  height: 1rpx;
+  background-color: #eeeeee;
+}
+
+.shop-info .logo{
+  width: 65rpx;
+  height: 65rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.shop-info .name{
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-bottom: 5rpx;
+}
+
+.shop-info .name .val{
+  float: left;
+  font-size: 34rpx;
+  width: 380rpx;
+}
+
+.shop-info .name .icon{
+  float: left;
+  color: #cccccc;
+}
+
+.shop-info .name .status{
+  float: right;
+}
+
+.shop-info .time{
+  color: #999999;
+  height: 20rpx;
+  line-height: 20rpx;
+  font-size: 20rpx;
+}
+
+.order-info{
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.order-info .val{
+  margin-left: 80rpx;
+  color: #666666;
+}
+
+.order-info .price{
+  font-weight: 600;
+  color: #000;
+}
+
+.button-row{
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button-row .but{
+  height: 58rpx;
+  line-height: 58rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  border-radius: 5rpx;
+  margin-left: 20rpx;
+}
+
+.button-row .but:first-of-type{
+  border: 1rpx solid #3090E7;
+  color: #3090E7;
+}
+
+.button-row .but:last-of-type{
+  border: 1rpx solid #FC6300;
+  color: #FC6300;
+}

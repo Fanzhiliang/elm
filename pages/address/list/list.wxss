@@ -1,0 +1,96 @@
+/* pages/address/list/list.wxss */
+page{
+  min-height: 100%;
+  background-color: #f6f6f6;
+}
+
+.receiveList{
+  background-color: #fff;
+}
+
+.row{
+  padding: 0 30rpx 20rpx 30rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+  position: relative;
+}
+
+.user-info{
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #000;
+}
+
+.user-info .name{
+  font-size: 32rpx;
+  font-weight: 600rpx;
+}
+
+.user-info .honorific{
+  margin-left: 20rpx;
+}
+
+.user-info .mobile{
+  margin-left: 20rpx;
+}
+
+.address-info{
+  display: flex;
+  align-items: center;
+}
+
+.address-info .tag{
+  width: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background-color: #0396fd;
+  color: #fff;
+  text-align: center;
+  margin-right: 10rpx;
+  font-size: 25rpx;
+  border-radius: 5rpx;
+}
+
+.address-info .address{
+  width: 500rpx;
+  line-height: 30rpx;
+  color: #9f9f9f;
+}
+
+.row .edit{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: #acacac;
+  font-size: 44rpx;
+  padding: 30rpx;
+}
+
+
+
+
+
+/* 底部 新增地址 */
+.address-footer-wrap{
+  height: 100rpx;
+}
+
+.address-footer-wrap .address-footer{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #EEEEEE;
+  text-align: center;
+  color: #099cdf;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 32rpx;
+}
+
+.address-footer-wrap .address-footer .icon{
+  margin-right: 10rpx;
+}
+

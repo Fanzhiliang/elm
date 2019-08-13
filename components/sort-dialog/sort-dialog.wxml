@@ -1,0 +1,61 @@
+<!-- 排序、筛选 -->
+<view class="sort-header">
+  <view class="sort-item {{sortIndex == 0 ? 'active': ''}}" data-sortIndex="0" bindtap="selectSort">
+    {{sortList[activeSort].text}}<text class="arrow"></text>
+  </view>
+  <view class="sort-item {{sortIndex == 1 ? 'active': ''}}" data-sortIndex="1" bindtap="selectSort">
+    距离最近
+  </view>
+  <view class="sort-item {{sortIndex == 2 ? 'active': ''}}" data-sortIndex="2" bindtap="selectSort">
+    品质联盟
+  </view>
+  <view class="sort-item {{sortIndex == 3 ? 'active': ''}}" data-sortIndex="3" bindtap="selectSort">
+    筛选<text class="icon iconfont icon-screen"></text>
+  </view>
+</view>
+
+<!-- 排序弹框 -->
+<view class="mask" wx:if="{{show}}"></view>
+<view class="sort-dialog {{show?'show':''}}" style="top:{{top}}" catchtap="toggleShow">
+  <view class="dislog-inner">
+    <!-- 选择类型 -->
+    <view class="sort-header">
+        <view class="sort-item {{sortIndex == 0 ? 'active': ''}}" data-sortIndex="0" bindtap="selectSort">
+          {{sortList[activeSort].text}}<text class="arrow"></text>
+        </view>
+        <view class="sort-item {{sortIndex == 1 ? 'active': ''}}" data-sortIndex="1" bindtap="selectSort">
+          距离最近
+        </view>
+        <view class="sort-item {{sortIndex == 2 ? 'active': ''}}" data-sortIndex="2" bindtap="selectSort">
+          品质联盟
+        </view>
+        <view class="sort-item {{sortIndex == 3 ? 'active': ''}}" data-sortIndex="3" bindtap="selectSort">
+          筛选<text class="icon iconfont icon-screen"></text>
+        </view>
+    </view>
+  </view>
+
+  <!-- 排序选择列表 -->
+  <view class="sort-panel" wx:if="{{sortIndex == 0}}">
+    <view class="row-item {{activeSort==index?'active':''}}" wx:for="{{sortList}}" wx:key="{{index}}" data-key="{{item.key}}" data-index="{{index}}" data-text="{{item.text}}" bindtap="selectRow">
+      {{item.text}}<text class="sure"></text>
+    </view>
+  </view>
+
+  <!-- 筛选选择列表 -->
+  <view class="sort-panel" wx:if="{{sortIndex == 3}}" catchtap="false">
+    <block wx:for="{{screenList}}" wx:key="{{index}}">
+      <view class="title">{{item.title}}</view>
+      <view class="screen-list">
+        <view wx:for="{{item.list}}" wx:for-item="it" wx:for-index="i" wx:key="{{i}}" class="screen-item {{it.active?'active':''}}" data-key="{{it.key}}" data-findex="{{index}}" catchtap="selectScreen">
+          <text class="sure"></text><image wx:if="{{it.icon}}" src="{{it.icon}}" ></image>{{it.text}}
+        </view>
+      </view>
+    </block>
+
+    <view class="button-row">
+      <view class="but clear" catchtap="clear">清空</view>
+      <view class="but sure" catchtap="sure">确定</view>
+    </view>
+  </view>
+</view>

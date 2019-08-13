@@ -1,0 +1,375 @@
+/* pages/shop/components/header/header.wxss */
+@import '/static/icon/iconfont.wxss';
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* 顶部图片和logo */
+.top{
+  height: 200rpx;
+  position: relative;
+  margin-bottom: 60rpx;
+}
+
+.top .bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.top .mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8; 
+  background: linear-gradient(rgba(0,0,0,0.3),transparent);
+}
+
+.top .logo-wrap{
+  position: relative;
+  z-index: 9;
+  top: 80rpx;
+  left: 300rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.top .logo-wrap .logo{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.top .logo-wrap .tag{
+  width: 45rpx;
+  height: 25rpx;
+  line-height: 25rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #4D200B;
+  background-color: #FEDF41;
+  font-size: 17rpx;
+  text-align: center;
+  border-radius: 5rpx 0 5rpx 0;
+}
+
+
+/* 文字介绍 */
+.info{
+
+}
+
+.info .title{
+  width: 520rpx;
+  height: 40rpx;
+  margin: 0 115rpx;
+  display: flex;
+  align-items: center;
+}
+
+.info .title .value{
+  width: 450rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-right: 50rpx;
+}
+
+.info .title .arrow{
+  width: 0;
+  height: 0;
+  border: 15rpx solid transparent;
+  border-left-color: #000;
+}
+
+.info .num{
+  height: 50rpx;
+  text-align: center;
+}
+
+.info .num text{
+  color: #888888;
+  font-size: 24rpx;
+  margin: 0 7.5rpx;
+  line-height: 50rpx;
+}
+
+.info .activity{
+  width: 600rpx;
+  margin: 0 75rpx;
+  position: relative;
+  height: 40rpx;
+  overflow: hidden;
+}
+
+.info .activity .activity-row{
+  width: 500rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+
+.info .activity .activity-row .icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.info .activity .more{
+  color: #999999;
+  font-size: 26rpx;
+  position: absolute;
+  height: 40rpx;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.info .activity .more .arrow{
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top-color: #999999;
+  margin-top: 10rpx;
+  margin-left: 5rpx;
+}
+
+.info .activity.showMore .more .arrow{
+  transform: rotateZ(180deg);
+  margin-top: -10rpx;
+}
+
+.info .news{
+  width: 600rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  margin: 0 75rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+
+
+
+/* 弹框 */
+.dialog-mask,.activity-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 997;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+
+  transform: scale(0,0);
+  opacity: 0;
+}
+
+@keyframes dialog-show{
+  from{
+    transform: scale(1.2,1.2);
+    opacity: 0.5;
+  }
+  to{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-hide{
+  from{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+  to{
+    transform: scale(0,0);
+    opacity: 0;
+  }
+}
+
+.dialog.show{
+  animation: dialog-show 0.2s forwards linear;
+}
+
+.dialog.hide{
+  animation: dialog-hide 0.2s forwards linear;
+}
+
+.dialog .dialog-inner{
+  width: 600rpx;
+  box-sizing: border-box;
+  margin: 30% 75rpx 0 75rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 40rpx 0;
+}
+
+.dialog .dialog-header{
+  padding: 0 55rpx;
+  display: flex;
+}
+
+.dialog .dialog-header .tag{
+  width: 55rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  background-color: #ffef0b;
+  color: #663804;
+  font-size: 24rpx;
+  text-align: center;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+}
+
+.dialog .dialog-header .name{
+  width: 420rpx;
+  font-size: 38rpx;
+  font-weight: 500;
+  text-align: center;
+}
+
+.dialog .dialog-data{
+  display: flex;
+  margin: 40rpx 0;
+}
+
+.dialog .dialog-data .item{
+  text-align: center;
+  flex: 1;
+}
+
+.dialog .dialog-data .num{
+  font-weight: 600;
+}
+
+.dialog .dialog-data .desc{
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.dialog .dialog-news{
+  height: 30rpx;
+  text-align: center;
+  color: #999999;
+  font-size: 0;
+  letter-spacing: 0;
+  position: relative;
+}
+
+.dialog .dialog-news .value{
+  width: 65rpx;
+  line-height: 30rpx;
+  display: inline-block;
+  background-color: #fff;
+  position: relative;
+  z-index: 4;
+  font-size: 28rpx;
+}
+
+.dialog .dialog-news .line{
+  width: 150rpx;
+  height: 1rpx;
+  background: linear-gradient(to right,white,black 50%,white 100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 3;
+}
+
+.dialog .article{
+  width: 500rpx;
+  height: 200rpx;
+  padding: 0 50rpx;
+}
+
+.dialog .article .val{
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+
+.activity--wrap{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 999;
+
+  top: 120%;
+  transition: top linear 0.2s;
+}
+
+.activity--wrap.show{
+  top: 0;
+}
+
+.activity-dialog{
+  background-color: #fff;
+  position: relative;
+}
+
+.activity-dialog .dialog-title{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  position: relative;
+  font-size: 34rpx;
+}
+
+.activity-dialog .dialog-title .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 60rpx;
+  padding: 0 30rpx;
+  font-size: 46rpx;
+  color: #656565;
+  opacity: 0.5;
+}
+
+.activity-dialog .dialog-row{
+  display: flex;
+  align-items: center;
+}
+
+.activity-dialog .dialog-row .icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.activity-dialog .row-scroll{
+  height: 400rpx;
+}
+
+.activity-dialog .rows{
+  padding: 20rpx 30rpx;
+}
+
+
+
+
+
+
+

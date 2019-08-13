@@ -1,0 +1,7 @@
+<!--components/bottom-loading/bottom-loading.wxml-->
+<view class="loading">
+  <view class="loading-wrap {{hasMore?'rotate':''}}">
+    <text wx:if="{{hasMore}}" class="loading-icon iconfont icon-jiazaizhong"></text>
+    <text wx:else class="no-more">没有更多了</text>
+  </view>
+</view>

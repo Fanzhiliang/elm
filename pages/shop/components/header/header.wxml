@@ -1,0 +1,99 @@
+<!--pages/shop/components/header/header.wxml-->
+<!-- 顶部图片和logo -->
+<view class="top">
+  <image class="bg" src="/static/img/top-bg.jpg" mode="aspectFill"></image>
+  <view class="mask"></view>
+  <view class="logo-wrap">
+    <view class="tag">品牌</view>
+    <image class="logo" src="/static/img/shop-logo-1.jpg"></image>
+  </view>
+</view>
+
+<!-- 文字介绍 -->
+<view class="info">
+  <view class="title" bindtap="showDialog">
+    <view class="value ellipsis">华莱士炸鸡汉堡(天河谷裕店)</view>
+    <view class="arrow"></view>
+  </view>
+  <view class="num">
+    <text>评价4.4</text>
+    <text>月售1166单</text>
+    <text>商家配送约55分钟</text>
+  </view>
+  <view class="activity" bindtap="toggleShowMore">
+    <view class="activity-row">
+      <image class="icon" src="/static/img/screen-3.png"></image>
+      满26减5，满50减3，满100减28
+    </view>
+    <view class="more">3个优惠<text class="arrow"></text></view>
+  </view>
+
+  <view class="news ellipsis">公告：华莱士力求为每以为顾客提供高品质、热腾腾且新鲜的产品，给每一位顾客留下深刻的印象。我们的产品需要先订后做，我们做好的产品会让外卖小哥送到你指定的目的地。耽误您的宝贵时间，请理解！感谢您对我们华莱士的关顾和支持。</view>
+</view>
+
+<!-- 活动弹框 -->
+<view class="activity-mask" hidden="{{!isShowMore}}"></view>
+<view class="activity--wrap {{isShowMore?'show':''}}" catchtap="toggleShowMore">
+  <view class="activity-dialog" catchtap="false">
+    <view class="dialog-title">优惠活动<text class="close iconfont icon-baseline-close-px" catchtap="toggleShowMore"></text></view>
+    <scroll-view scroll-y class="row-scroll">
+      <view class="rows">
+        <view class="dialog-row">
+          <image class="icon" src="/static/img/screen-3.png"></image>
+          满26减5，满50减3，满100减28
+        </view>
+        <view class="dialog-row">
+          <image class="icon" src="/static/img/screen-8.png"></image>
+          特价商品1.99元起
+        </view>
+        <view class="dialog-row">
+          <image class="icon" src="/static/img/screen-9.png"></image>
+          新用户立减17元
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+<!-- 商店弹框 -->
+<view class="dialog-mask" wx:if="{{dialogStatus=='show'}}"></view>
+<view class="dialog {{dialogStatus}}" catchtap="hideDialog">
+  <view class="dialog-inner" catchtap="false">
+    <view class="dialog-header">
+      <view class="tag">品牌</view>
+      <view class="name">华莱士炸鸡汉堡(天河谷裕店)</view>
+    </view>
+    <view class="dialog-data">
+      <view class="item">
+        <view class="num">4.4</view><view class="desc">评分</view>
+      </view>
+      <view class="item">
+        <view class="num">1195单</view><view class="desc">月售</view>
+      </view>
+      <view class="item">
+        <view class="num">商家配送</view><view class="desc">约50分钟</view>
+      </view>
+      <view class="item">
+        <view class="num">1元</view><view class="desc">配送费</view>
+      </view>
+      <view class="item">
+        <view class="num">161m</view><view class="desc">距离</view>
+      </view>
+    </view>
+    <view class="dialog-news">
+      <view class="value">公告</view>
+      <view class="line"></view>
+    </view>
+    <scroll-view scroll-y class="article">
+      <view class="val">
+        华莱士力求为每以为顾客提供高品质、热腾腾且新鲜的产品，给每一位顾客留下深刻的印象。我们的产品需要先订后做，我们做好的产品会让外卖小哥送到你指定的目的地。耽误您的宝贵时间，请理解！感谢您对我们华莱士的关顾和支持。
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+
+
+

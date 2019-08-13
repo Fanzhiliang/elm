@@ -1,0 +1,117 @@
+/* pages/address/form/form.wxss */
+
+page{
+  min-height: 100%;
+  background-color: #f7f5f6;
+  font-size: 30rpx;
+}
+
+.form{
+  background-color: #fff;
+  margin: 30rpx 0;
+  padding-left: 30rpx;
+}
+
+.form-row{
+  width: 100%;
+  min-height: 90rpx;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1rpx solid #ededed;
+}
+
+.form-row:last-of-type{
+  border-bottom: 0;
+}
+
+.form-row .label{
+  width: 155rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+
+.form-row .left-row{
+  flex: 1;
+}
+
+.form-row input{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.form-row .tag-row{
+  height: 90rpx;
+  line-height: 90rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #ededed;
+}
+
+.form-row .tag{
+  border: 1rpx solid #dfdfdf;
+  color: #5d5b5c;
+  width: 140rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+.form-row .tag.active{
+  border-color: #e1e5e4;
+  color: #099cdf;
+}
+
+.form-row .value{
+  color: #a9a7a8;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-right: 55rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.form-row .value .arrow{
+  width: 25rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 30rpx;
+}
+
+.form-row textarea{
+  width: 100%;
+  height: 130rpx;
+  line-height: 40rpx;
+  padding: 25rpx 30rpx 25rpx 0;
+  box-sizing: border-box;
+}
+
+.but-row{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 15rpx;
+  display: flex;
+}
+
+.but-row .button{
+  flex: 1;
+  margin: 0 10rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.but-row .button.delete{
+  background-color: #d56551;
+}
+
+.but-row .button.sure{
+  background-color: #4cd966;
+}

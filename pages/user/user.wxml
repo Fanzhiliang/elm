@@ -1,0 +1,94 @@
+<!--pages/user/user.wxml-->
+
+<!-- 用户信息 -->
+<block wx:if="{{userInfo}}">
+  <view class="user-row">
+    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+    <view class="username ellipsis">{{userInfo.nickName}}</view>
+    <view class="phone ellipsis">
+      <text class="iconfont icon-phone"></text><text>131****9543</text>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <button class="user-row-wrap" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <view class="user-row">
+      <view class="username ellipsis">登录/注册</view>
+      <view class="phone ellipsis">登录后可以获得更多特权</view>
+    </view>
+  </button>
+</block>
+
+<!-- 余额、红包、金币 -->
+<view class="three-row">
+  <view class="item">
+    <view class="top yue"><text>0</text>元</view>
+    <view class="bottom">余额</view>
+  </view>
+
+  <view class="item">
+    <view class="top hongbao"><text>6</text>个</view>
+    <view class="bottom">红包</view>
+  </view>
+
+  <view class="item">
+    <view class="top jinbi"><text>12</text>元</view>
+    <view class="bottom">金币</view>
+  </view>
+</view>
+
+<!-- 收货地址、推荐有奖... -->
+<view class="group">
+  <navigator url="/pages/address/list/list" class="cell" hover-class="none">
+    <image class="left-image" src="/static/img/address.png"></image>
+    <view class="right-row">
+      <text class="title">收货地址</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+  <navigator class="cell">
+    <image class="left-image" src="/static/img/reward.png"></image>
+    <view class="right-row">
+      <text class="title">推荐有奖</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+  <navigator class="cell">
+    <image class="left-image" src="/static/img/mind.png"></image>
+    <view class="right-row">
+      <text class="title">我的心意卡</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+  <navigator class="cell">
+    <image class="left-image" src="/static/img/service.png"></image>
+    <view class="right-row">
+      <text class="title">服务中心</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+  <navigator class="cell">
+    <image class="left-image" src="/static/img/customer-service.png"></image>
+    <view class="right-row">
+      <text class="title">我的客服</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+  <navigator class="cell">
+    <image class="left-image" src="/static/img/rule.png"></image>
+    <view class="right-row">
+      <text class="title">规则中心</text>
+      <text class="icon iconfont icon-right"></text>
+    </view>
+  </navigator>
+
+</view>
+
+<view class="exit-row">退出登录</view>
+
+<view class="privacy-row">隐私政策</view>
